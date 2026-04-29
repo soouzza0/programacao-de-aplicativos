@@ -1,0 +1,14 @@
+def aplicar_promocao(lista_precos):
+    nova_lista = []
+    for preco in lista_precos:
+        if preco > 100:
+            nova_lista.append(preco * 0.85)  # Aplica 15% de desconto
+        else:
+            nova_lista.append(preco)
+    return nova_lista
+
+# Programa principal
+compras = [150.0, 80.0, 200.0, 50.0]
+lista_atualizada = aplicar_promocao(compras)
+
+print(lista_atualizada)
