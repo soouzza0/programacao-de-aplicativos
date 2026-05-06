@@ -4,7 +4,7 @@ def esta_na_lista(lista, busca):
             return "Encontrado!"
     return "Não disponível"
 
-# Programa principal
+
 ferramentas = ["Martelo", "Chave de fenda", "Alicate", "Serrote"]
 
 resultado = esta_na_lista(ferramentas, "Alicate")

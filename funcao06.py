@@ -5,7 +5,7 @@ try:
     v = float(input("Velocidade atual (km/h): "))
 
     if v > 80:
-        # Chamamos a função direto dentro do print
+        
         print(f"Alerta: {v} km/h equivale a {converter_km_para_ms(v):.1f} m/s.")
         print("Reduza a velocidade!")
     else:

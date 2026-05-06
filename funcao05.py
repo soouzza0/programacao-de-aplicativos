@@ -5,7 +5,7 @@ def sofrer_dano(valor_dano):
     vida = vida - valor_dano
     return vida
 
-# Programa principal
+
 while vida > 0:
     print(f"Vida atual: {vida}")
     dano = int(input("Quanto de dano o monstro causou? "))
