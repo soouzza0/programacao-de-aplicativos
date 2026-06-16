@@ -4,11 +4,11 @@ conecao = sqlite3. connect('escola.db')
 cursor = conecao.cursor()
 
 cursor.execute('''
-                CREATE TABLE IF NOT EXISTS cadastro_alunos(
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                CREATE TABLE IF NOT EXISTS alunos(
+                ID INTEGER PRIMARY KEY AUTOINCREMENT,
                 nome TEXT NOT NULL,
                 telefone TEXT,
-                turma TEXT,
+                materia TEXT,
                 idade_aluno INTEGER,
                 cpf TEXT UNIQUE NOT NULL)''')
 nome_aluno = input("digite o nome do aluno: ")
