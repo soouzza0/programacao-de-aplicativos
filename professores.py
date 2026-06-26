@@ -2,8 +2,9 @@ import sqlite3
 
 conecao = sqlite3. connect('escola.db')
 cursor = conecao.cursor()
+
 def cadastrar_professor():
-    cursor.execute('''
+    cursor.execute('''  
                     CREATE TABLE IF NOT EXISTS professores(
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     nome TEXT NOT NULL,
@@ -12,7 +13,13 @@ def cadastrar_professor():
                     idade_professor INTEGER,
                     cpf TEXT UNIQUE NOT NULL,
                     salario REAL NOT NULL,
-                    nome_da_escola TEXT)''')
+                    nome_da_escola TEXT,
+                    endereco TEXT,
+                    cidade TEXT,
+                    estado TEXT
+                    )
+                    ''')
+
 
     nome_professor = input("digite o nome do professor: ")
     idade_professor = int(input("digite a idade do professor: "))
@@ -21,9 +28,11 @@ def cadastrar_professor():
     cpf_professor = input("digite o cpf do professor: ")
     salario_professor = float(input("digite o salario:"))
     nome_da_escola = input("digite o nome da escola:")
-
-    comando_inserir = (f''' INSERT INTO professores(nome,telefone,materia,idade_professor,cpf,salario,nome_da_escola)
-                    VALUES('{nome_professor}', '{telefone_professor}', '{materia}', '{idade_professor}', '{cpf_professor}', {salario_professor}, '{nome_da_escola}')''')
+    endereco = input("digite o seu endereco ")
+    cidade = input("digite a sua cidade")
+    estado = input("digite o seu estado")
+    comando_inserir = (f''' INSERT INTO professores(nome,telefone,materia,idade_professor,cpf,salario,nome_da_escola,endereco,cidade,estado)                    
+                       VALUES('{nome_professor}', '{telefone_professor}', '{materia}', {idade_professor}, '{cpf_professor}', {salario_professor}, '{nome_da_escola}', '{endereco}', '{cidade}', '{estado}')''')
 
     cursor.execute(comando_inserir)
     conecao.commit()
@@ -52,6 +61,9 @@ def listar():
             print(f"CPF: {professores[5]}")
             print(f"Salario: {professores[6]}")
             print(f"Escola: {professores[7]}")
+            print(f"endereço: {professores[8]}")
+            print(f"cidade: {professores[9]}")
+            print(f"estado: {professores[10]}")
             print("-" * 30)
 
             conexao.close()
@@ -66,12 +78,14 @@ def atualizar_dados():
     novo_cpf_professor = input("Digite o novo CPF: ")
     novo_salario = input("Digite o novo salário: ")
     nova_escola = input("Digite a nova escola: ")
-
+    novo_endereco = input("digite seu novo endereco")
+    nova_cidade = input("digite sua nova cidade")
+    novo_estado = input("digite seu novo estado")
     comando_inserir = f'''
                     UPDATE professores
                     SET nome = '{novo_nome_professor}', telefone = '{novo_telefone_professor}', materia = '{nova_materia}',
                     idade_professor = '{nova_idade_professor}', cpf = '{novo_cpf_professor}', salario = '{novo_salario}', nome_da_escola = '{nova_escola}'
-                    WHERE id = {id_professor}'''
+                    WHERE id = {id_professor}, endereco = '{novo_endereco}', cidade = '{nova_cidade}', 'estado = {novo_estado}', '''
     
     cursor.execute(comando_inserir)
     conecao.commit()
