@@ -13,4 +13,4 @@ def inserir_professor(nome, materia, cpf):
     finally: 
         conexao.close() 
 
-#  no trecho cursor.execute("INSERT professores " o insert está escrito errado 
+# no trecho cursor.execute("INSERT professores " o insert está escrito errado "
