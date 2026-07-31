@@ -14,6 +14,6 @@ def inicializar_banco():
     # o banco nao está salvando as alteraçoes. por que ? 
     # R: nao foi criado um banco de dados, e faltou o "conexao.commit()"" para salvar as alteraçoes.
 
-    conexao.close()
     conexao.commit()
+    conexao.close()
 
