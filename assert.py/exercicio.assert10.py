@@ -5,8 +5,6 @@ def situacao_aluno(media):
 
 assert situacao_aluno(8) == "Aprovado"
 
- # Crie testes para as médias: 6, 5.9, 0 e 10.
-
 assert situacao_aluno(6) == "Aprovado"
 assert situacao_aluno(5.9) == "Reprovado"
 assert situacao_aluno(0) == "Reprovado"
